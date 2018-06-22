@@ -1,0 +1,166 @@
+/*
+* CONTENTS.................................
+*
+* VARIABLES AND MIXINS
+*
+* GLOBAL
+*
+* HEADER
+*
+* NAVIGATION
+*
+* MAIN
+*
+* FOOTER
+*
+* MIXINS
+*/
+
+/*---------------------------------------------------*\
+    #VARIABLES AND MIXINS
+\*---------------------------------------------------*/
+
+$color-background: #232323;
+$color-main: steelblue;
+$color-secondary: ghostwhite;
+$color-hover: steelblue;
+$color-alert: red;
+
+$transition-speed: 0.7s;
+
+@mixin transform-friendly($prop){
+    -webkit-transition: $prop $transition-speed;
+    -moz-transition: $prop $transition-speed;
+}
+
+
+
+/*---------------------------------------------------*\
+    #GLOBAL
+\*---------------------------------------------------*/
+
+body {
+    background-color: $color-background;
+    color: $color-secondary;
+    margin: 0;  
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+
+/*---------------------------------------------------*\
+    #HEADER
+\*---------------------------------------------------*/
+
+header{
+    text-align: center;
+    background-color: $color-main;
+    margin: 0;
+    padding: 10px 0;
+}
+
+h1{
+    color: $color-secondary;
+    line-height: 0.7;
+}
+
+#color-to-guess{
+    font-size: 200%;
+}
+
+
+
+/*---------------------------------------------------*\
+    #NAVIGATION
+\*---------------------------------------------------*/
+
+nav{
+    background-color: $color-secondary;
+    height: 30px;
+    text-align: center;
+}
+
+.nav__selected{
+    color: $color-secondary;
+    background-color: $color-main;
+}
+
+button{
+    border: none;
+    background: none;
+    outline: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 700;
+    color: $color-main;
+    letter-spacing: 1px;
+    font-size: inherit;
+    transition: all $transition-speed;
+    @include transform-friendly(all);
+    &:hover {
+        @extend .nav__selected;   
+        cursor: pointer;
+    }
+}
+
+#result-message{
+    display: inline-block;
+    width: 20%;
+}
+
+
+
+/*---------------------------------------------------*\
+    #MAIN
+\*---------------------------------------------------*/
+
+main{
+    max-width: 600px;
+    margin: 10px auto;
+    height: 400px;
+}
+
+.tile {
+    width: 30%;
+    background-color: $color-alert;
+    padding-bottom: 30%;
+    float: left;
+    margin: 1.5%;
+    border-radius: 15%;
+    transition: background-color $transition-speed;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.07);
+    }
+
+    @include transform-friendly(background-color);
+}
+
+
+
+/*---------------------------------------------------*\
+    #FOOTER
+\*---------------------------------------------------*/
+
+footer{
+    clear: left;
+    text-align: center;
+    margin-top: 30px;
+    border-top: solid white 30px;
+}
+
+.my-Name{
+    font-weight: 900;
+}
+
+.footer__social-button{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+    &:hover{
+        cursor: pointer;
+    }
+}
