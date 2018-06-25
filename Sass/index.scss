@@ -52,7 +52,7 @@ body {
     #HEADER
 \*---------------------------------------------------*/
 
-header{
+.main-header{
     text-align: center;
     background-color: $color-main;
     margin: 0;
@@ -61,11 +61,11 @@ header{
 
 h1{
     color: $color-secondary;
-    line-height: 0.7;
+    line-height: 1.4;
 }
 
 #color-to-guess{
-    font-size: 200%;
+    font-size: 2em;
 }
 
 
@@ -74,18 +74,13 @@ h1{
     #NAVIGATION
 \*---------------------------------------------------*/
 
-nav{
+.nav-bar{
     background-color: $color-secondary;
     height: 30px;
     text-align: center;
 }
 
-.nav__selected{
-    color: $color-secondary;
-    background-color: $color-main;
-}
-
-button{
+.nav-bar__button{
     border: none;
     background: none;
     outline: none;
@@ -95,15 +90,20 @@ button{
     color: $color-main;
     letter-spacing: 1px;
     font-size: inherit;
-    transition: all $transition-speed;
+    transition: transform $transition-speed;
     @include transform-friendly(all);
     &:hover {
-        @extend .nav__selected;   
+        @extend .nav-bar__selected;   
         cursor: pointer;
     }
 }
 
-#result-message{
+.nav-bar__selected{
+    color: $color-secondary;
+    background-color: $color-main;
+}
+
+.result-message{
     display: inline-block;
     width: 20%;
 }
@@ -116,8 +116,7 @@ button{
 
 main{
     max-width: 600px;
-    margin: 10px auto;
-    height: 400px;
+    margin: 5px auto;
 }
 
 .tile {
@@ -143,24 +142,37 @@ main{
     #FOOTER
 \*---------------------------------------------------*/
 
-footer{
+.main-footer{
     clear: left;
     text-align: center;
-    margin-top: 30px;
     border-top: solid white 30px;
 }
 
-.my-Name{
+.my-name{
     font-weight: 900;
 }
 
 .footer__social-button{
+    border: none;
+    background: none;
+    outline: none;
     border-radius: 50%;
     height: 100px;
     width: 100px;
     margin-right: 10px;
     margin-left: 10px;
+    transition: transform $transition-speed;
+    @include transform-friendly(all);
     &:hover{
         cursor: pointer;
+        background-color: $color-main;
+        & > i{
+            transition: transform $transition-speed;
+            color: #232323;
+        }
     }
+}
+
+.footer__social-icon{
+    color: $color-main;
 }

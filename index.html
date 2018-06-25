@@ -5,36 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ColorGame by Kamil Sobieraj</title>
+    <link rel="stylesheet" href="css/fontello.css">
     <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/fontello.css">
 </head>
 <body>
-    <header>
-        <h1>Kamil Sobieraj
-            <p><span id="color-to-guess"></span></p>
-            <p>Color Guessing Game</p>
+    <header class="main-header">
+        <h1>Kamil Sobieraj<br>
+            <span id="color-to-guess"></span><br>
+            Color Guessing Game
         </h1>
     </header>
-    <nav>
-        <button id="reset-colors">New Colors Set</button>
-        <span id="result-message"></span>
-        <button class="mode-button">EASY</button>
-        <button class="mode-button nav__selected">HARD</button>
+    <nav class="nav-bar">
+        <button id="reset-colors" class="nav-bar__button">New Colors Set</button>
+        <span id="result-message" class="result-message"></span>
+        <button class="nav-bar__mode-button nav-bar__button">EASY</button>
+        <button class="nav-bar__mode-button nav-bar__button nav-bar__selected">HARD</button>
     </nav>
     <main>      
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
+        <ul>
+            <li class="tile"></li>
+            <li class="tile"></li>
+            <li class="tile"></li>
+            <li class="tile"></li>
+            <li class="tile"></li>
+            <li class="tile"></li>
+        </ul>
     </main>
-    <footer>
-        <p>Color Guessing Game created by <span class="my-Name">Kamil Sobieraj</span></p>
-        <a href="https://github.com/KamilSobieraj" target="_blank"><button id="github" class="footer__social-button"><i class="icon-github-circled"></i></button></a>
-        <a href="https://www.linkedin.com/in/kamil-sobieraj-477907b7/" target="_blank"><button id="linkedin" class="footer__social-button"><i class="icon-linkedin-squared"></i></button></a>
-        <a href="https://twitter.com/kamil_sobieraj" target="_blank"><button id="twitter" class="footer__social-button"><i class="icon-twitter-squared"></i></button></a>
+    <footer class="main-footer">
+        <p>Color Guessing Game created by <span class="my-name">Kamil Sobieraj</span></p>
+        <button id="github" class="footer__social-button" onclick="window.open('https://github.com/KamilSobieraj')" type="button"><i class="icon-github-circled footer__social-icon"></i></button>
+        <button id="linkedin" class="footer__social-button" onclick="window.open('https://www.linkedin.com/in/kamil-sobieraj-477907b7/')" type="button"><i class="icon-linkedin-squared footer__social-icon"></i></button>
+        <button id="twitter" class="footer__social-button" onclick="window.open('https://twitter.com/kamil_sobieraj')" type="button"><i class="icon-twitter-squared footer__social-icon"></i></button>
         
         
         <p>Based on Udemy course, upgraded by implementing HTML5, Sass, Module pattern, BEM and ES6 notation.</p>

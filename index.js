@@ -4,11 +4,11 @@ var ColorGame = (function(){
     var colorToGuess;
     var mainTagHeight = document.querySelector('main');
     var tiles = document.querySelectorAll('.tile');
-    var colorToGuessDisplay = document.getElementById('color-to-guess');
-    var displayMessage = document.querySelector('#result-message');
+    var colorToGuessDisplay = document.querySelector('#color-to-guess');
+    var displayMessage = document.querySelector('.result-message');
     var headerDisplay = document.querySelector('header');
     var resetColorsButton = document.querySelector('#reset-colors');
-    var modeButtons = document.querySelectorAll('.mode-button');
+    var modeButtons = document.querySelectorAll('.nav-bar__mode-button');
     const headerColor = 'steelblue';
     const backgrColor = '#232323';
 
@@ -22,17 +22,17 @@ var ColorGame = (function(){
         //mode buttons listeners
         for (let i = 0; i < modeButtons.length; i++) {
             modeButtons[i].addEventListener('click', function() {
-                modeButtons[0].classList.remove('nav__selected');
-                modeButtons[1].classList.remove('nav__selected');
-                this.classList.add('nav__selected')
+                modeButtons[0].classList.remove('nav-bar__selected');
+                modeButtons[1].classList.remove('nav-bar__selected');
+                this.classList.add('nav-bar__selected')
                 if (this.textContent === 'EASY') {
                     numberOfTiles = 3;
-                    mainTagHeight.style.height = '200px';
+                    //mainTagHeight.style.height = '200px';
 
                 }
                 else{
                     numberOfTiles = 6;    
-                    mainTagHeight.style.height = '400px';
+                    //mainTagHeight.style.height = '400px';
                 }
                 reset();
             })
@@ -127,10 +127,10 @@ var ColorGame = (function(){
     }
 
     //Generate a single color for an array
-    var generateRandomColor = function() {
-        let red = Math.floor(Math.random() * 256);    
-        let green = Math.floor(Math.random() * 256);    
-        let blue = Math.floor(Math.random() * 256);    
+    const generateRandomColor = function() {
+        const red = Math.floor(Math.random() * 256);    
+        const green = Math.floor(Math.random() * 256);    
+        const blue = Math.floor(Math.random() * 256);    
         return `rgb(${red}, ${green}, ${blue})`;
     }
 
