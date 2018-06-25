@@ -12,13 +12,13 @@ var ColorGame = (function(){
     const headerColor = 'steelblue';
     const backgrColor = '#232323';
 
-    const init = function() {
+    const init = () => {
         modeButtonsSetter();
         tilesAction();
         reset();
     }
 
-    const modeButtonsSetter = function() {
+    const modeButtonsSetter = () => {
         //mode buttons listeners
         for (let i = 0; i < modeButtons.length; i++) {
             modeButtons[i].addEventListener('click', function() {
@@ -39,7 +39,7 @@ var ColorGame = (function(){
         }
     }
 
-    const tilesAction = function(){
+    const tilesAction = () => {
         //Color tiles action
         for (let i = 0; i < tiles.length; i++) {
             tiles[i].addEventListener('click', () => {
@@ -61,7 +61,7 @@ var ColorGame = (function(){
         }
     }
 
-    const reset = function() {
+    const reset = () => {
         colors = generateColorsSet(numberOfTiles);
         colorToGuess = pickColor();
         colorToGuessDisplay.textContent = colorToGuess.toLocaleUpperCase();
@@ -80,13 +80,13 @@ var ColorGame = (function(){
         }
 
     //Picking color to guess
-    const pickColor = function() {
+    const pickColor = () => {
         let random = Math.floor(Math.random() * colors.length);
         return colors[random];    
     }
 
     //Generate a new colors set
-    const generateColorsSet = function(numOfColors) {
+    const generateColorsSet = (numOfColors) => {
         let colorArray = [];
         for (let i = 0; i < numOfColors; i++) {
             colorArray.push(generateRandomColor());
@@ -120,14 +120,14 @@ var ColorGame = (function(){
     }
 
     //Changing colors after win
-    const changeColors = function(color) {
+    const changeColors = (color) => {
         for (let i = 0; i < tiles.length; i++) {
             tiles[i].style.backgroundColor = color;        
         }
     }
 
     //Generate a single color for an array
-    const generateRandomColor = function() {
+    const generateRandomColor = () => {
         const red = Math.floor(Math.random() * 256);    
         const green = Math.floor(Math.random() * 256);    
         const blue = Math.floor(Math.random() * 256);    

@@ -29,8 +29,10 @@ $color-alert: red;
 $transition-speed: 0.7s;
 
 @mixin transform-friendly($prop){
+    transition: $prop $transition-speed;
     -webkit-transition: $prop $transition-speed;
     -moz-transition: $prop $transition-speed;
+    
 }
 
 
@@ -91,7 +93,7 @@ h1{
     letter-spacing: 1px;
     font-size: inherit;
     transition: transform $transition-speed;
-    @include transform-friendly(all);
+    @include transform-friendly(transform);
     &:hover {
         @extend .nav-bar__selected;   
         cursor: pointer;
@@ -161,13 +163,14 @@ main{
     width: 100px;
     margin-right: 10px;
     margin-left: 10px;
-    transition: transform $transition-speed;
-    @include transform-friendly(all);
+    //transition: transform $transition-speed;
+    @include transform-friendly(transform);
     &:hover{
         cursor: pointer;
         background-color: $color-main;
         & > i{
-            transition: transform $transition-speed;
+            @include transform-friendly(transform);
+            //transition: transform $transition-speed;
             color: #232323;
         }
     }
