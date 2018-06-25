@@ -1,24 +1,24 @@
 var ColorGame = (function(){
-    var numberOfTiles = 6;
-    var colors = [];
-    var colorToGuess;
-    var mainTagHeight = document.querySelector('main');
-    var tiles = document.querySelectorAll('.tile');
-    var colorToGuessDisplay = document.querySelector('#color-to-guess');
-    var displayMessage = document.querySelector('.result-message');
-    var headerDisplay = document.querySelector('header');
-    var resetColorsButton = document.querySelector('#reset-colors');
-    var modeButtons = document.querySelectorAll('.nav-bar__mode-button');
+    let numberOfTiles = 6;
+    let colors = [];
+    let colorToGuess;
+    let mainTagHeight = document.querySelector('main');
+    let tiles = document.querySelectorAll('.tile');
+    let colorToGuessDisplay = document.querySelector('#color-to-guess');
+    let displayMessage = document.querySelector('.result-message');
+    let headerDisplay = document.querySelector('header');
+    let resetColorsButton = document.querySelector('#reset-colors');
+    let modeButtons = document.querySelectorAll('.nav-bar__mode-button');
     const headerColor = 'steelblue';
     const backgrColor = '#232323';
 
-    var init = function() {
+    const init = function() {
         modeButtonsSetter();
         tilesAction();
         reset();
     }
 
-    var modeButtonsSetter = function() {
+    const modeButtonsSetter = function() {
         //mode buttons listeners
         for (let i = 0; i < modeButtons.length; i++) {
             modeButtons[i].addEventListener('click', function() {
@@ -39,7 +39,7 @@ var ColorGame = (function(){
         }
     }
 
-    var tilesAction = function(){
+    const tilesAction = function(){
         //Color tiles action
         for (let i = 0; i < tiles.length; i++) {
             tiles[i].addEventListener('click', () => {
@@ -61,7 +61,7 @@ var ColorGame = (function(){
         }
     }
 
-    var reset = function() {
+    const reset = function() {
         colors = generateColorsSet(numberOfTiles);
         colorToGuess = pickColor();
         colorToGuessDisplay.textContent = colorToGuess.toLocaleUpperCase();
@@ -80,14 +80,14 @@ var ColorGame = (function(){
         }
 
     //Picking color to guess
-    var pickColor = function() {
+    const pickColor = function() {
         let random = Math.floor(Math.random() * colors.length);
         return colors[random];    
     }
 
     //Generate a new colors set
-    var generateColorsSet = function(numOfColors) {
-        var colorArray = [];
+    const generateColorsSet = function(numOfColors) {
+        let colorArray = [];
         for (let i = 0; i < numOfColors; i++) {
             colorArray.push(generateRandomColor());
         }
@@ -102,7 +102,7 @@ var ColorGame = (function(){
     //Clicking tiles action
     for (let i = 0; i < tiles.length; i++) {
         tiles[i].addEventListener('click', () => {
-            var clickedColor = tiles[i].style.backgroundColor;
+            let clickedColor = tiles[i].style.backgroundColor;
             console.log(clickedColor, colorToGuess);
             
             if (clickedColor === colorToGuess) {
@@ -120,7 +120,7 @@ var ColorGame = (function(){
     }
 
     //Changing colors after win
-    var changeColors = function(color) {
+    const changeColors = function(color) {
         for (let i = 0; i < tiles.length; i++) {
             tiles[i].style.backgroundColor = color;        
         }
